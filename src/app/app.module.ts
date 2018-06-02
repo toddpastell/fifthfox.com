@@ -1,16 +1,21 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { Routes, RouterModule } from '@angular/router';
 
-import { AppComponent } from './app.component';
+import { AppComponent } from './containers/app/app.component';
+
+const routes: Routes = [
+  { path: '', redirectTo: '/chat', pathMatch: 'full' },
+  { path: 'chat', loadChildren: '../chat/chat.module#ChatModule' },
+];
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes),
   ],
+  declarations: [AppComponent],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

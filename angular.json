@@ -118,5 +118,12 @@
       }
     }
   },
-  "defaultProject": "fifthfox"
+  "defaultProject": "fifthfox",
+  "schematics": {
+    "@schematics/angular:component": {
+      "changeDetection": "OnPush",
+      "prefix": "ff",
+      "styleext": "scss"
+    }
+  }
 }
