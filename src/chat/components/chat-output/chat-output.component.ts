@@ -1,4 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+
+import { Message } from '../../models/message.model';
 
 @Component({
   selector: 'ff-chat-output',
@@ -6,11 +8,6 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./chat-output.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ChatOutputComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class ChatOutputComponent {
+  @Input() messages: Message[];
 }

@@ -1,1 +1,14 @@
-<input type="text" class="input" placeholder="Message">
+<div class="field has-addons">
+  <div class="control is-expanded">
+    <input type="text" class="input" placeholder="Message" #box (keyup.enter)="respond(box.value); box.value= '' ">
+  </div>
+  <div class="control">
+    <button class="button" (click)="respond(box.value); box.value = '' ">Send</button>
+  </div>
+</div>
+<!-- <div class="buttons">
+  <button class="button is-loading" value="testbutton" (click)="respond('test1')">testbutton1</button>
+  <button class="button" value="testbutton" (click)="respond('test2')">testbutton2</button>
+  <button class="button" value="testbutton" (click)="respond('test3')">testbutton3</button>
+  <button class="button" value="testbutton" (click)="respond('test4')">testbutton4</button>
+</div> -->

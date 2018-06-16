@@ -1,4 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
+
+import { Message } from '../../models/message.model';
 
 @Component({
   selector: 'ff-chat-input',
@@ -6,11 +8,10 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./chat-input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ChatInputComponent implements OnInit {
+export class ChatInputComponent {
+  @Output() send = new EventEmitter<Message>();
 
-  constructor() { }
-
-  ngOnInit() {
+  respond(text: string) {
+    this.send.emit({text, userId: 1});
   }
-
 }

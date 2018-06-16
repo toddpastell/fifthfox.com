@@ -1,5 +1,5 @@
 export interface Message {
   text?: string;
-  fromUser?: boolean;
-  options?: string[];
+  userId?: number;
+  loading?: boolean;
 }
