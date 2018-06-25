@@ -1,4 +1,4 @@
 <div class="content is-narrow">
   <ff-chat-output [messages]="messages$ | async"></ff-chat-output>
-  <ff-chat-input (send)="onSend($event)"></ff-chat-input>
+  <ff-chat-input (send)="onSend($event)" [loading]="loading$ | async"></ff-chat-input>
 </div>

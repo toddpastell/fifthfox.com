@@ -1,4 +1,3 @@
-<p *ngFor="let message of messages" [class.has-text-right]="message.userId === 1">
-  {{ message.text }}
-  <span *ngIf="message?.loading" class="button is-loading">Loading</span>
+<p *ngFor="let message of messages" [class.has-text-right]="message.userId === 1" [@appear]="'any'">
+  <span class="bubble" [class.has-text-grey-light]="message.userId === 1">{{ message.text }}</span>
 </p>

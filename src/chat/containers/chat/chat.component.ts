@@ -1,8 +1,10 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
+import { Observable } from 'rxjs';
+import { delay, tap } from 'rxjs/operators';
+
 import { ChatService, BotService } from '../../services';
 
-import { Observable } from 'rxjs';
 import { Message } from '../../models/message.model';
 
 @Component({
@@ -13,12 +15,20 @@ import { Message } from '../../models/message.model';
 })
 export class ChatComponent implements OnInit {
   messages$: Observable<Message[]>;
+  loading$: Observable<boolean>;
 
   constructor(private chat: ChatService, private bot: BotService) { }
 
   ngOnInit() {
     this.bot.activate();
     this.messages$ = this.chat.messages$;
+    this.loading$ = this.chat.loading$;
+
+    this.chat.latest$.subscribe((() => {
+      setTimeout(() => {
+        window.scroll(0, 2147483647)
+      });
+    }));
   }
 
   onSend(event: Message) {

@@ -1,5 +1,5 @@
 <div class="field has-addons">
-  <div class="control is-expanded">
+  <div class="control is-expanded" [class.is-loading]="loading">
     <input type="text" class="input" placeholder="Message" #box (keyup.enter)="respond(box.value); box.value= '' ">
   </div>
   <div class="control">

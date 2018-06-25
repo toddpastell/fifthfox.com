@@ -18,7 +18,7 @@ export class BotService {
       .pipe(
         filter(messages => messages[0].userId === 1),
         delay(0),
-        tap(() => this.chat.addMessage({ loading: true, userId: 2 })),
+        tap(() => this.chat.prepare()),
         delay(1000)
       )
       .subscribe(messages => {
@@ -27,6 +27,7 @@ export class BotService {
   }
 
   private getResponse(messages: Message[]): Message {
-    return { text: 'Hello', userId: 2 };
+    const text = 'Sorry... I didn\'t quite understand that.';
+    return { text, userId: 2 };
   }
 }

@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 
 import { Message } from '../../models/message.model';
 
@@ -9,6 +9,7 @@ import { Message } from '../../models/message.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChatInputComponent {
+  @Input() loading: boolean;
   @Output() send = new EventEmitter<Message>();
 
   respond(text: string) {
