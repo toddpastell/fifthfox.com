@@ -5,11 +5,13 @@ import { filter, delay, tap } from 'rxjs/operators';
 import { ChatService } from '../chat/chat.service';
 
 import { Message } from '../../models/message.model';
+import { Intelligence } from '../../models/intelligence.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BotService {
+  intelligence: Intelligence;
 
   constructor(private chat: ChatService) { }
 
@@ -27,7 +29,7 @@ export class BotService {
   }
 
   private getResponse(messages: Message[]): Message {
-    const text = 'Sorry... I didn\'t quite understand that.';
+    const text = this.intelligence.respond(messages[0].text);
     return { text, userId: 2 };
   }
 }
