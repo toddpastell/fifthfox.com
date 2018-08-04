@@ -1,0 +1,16 @@
+<form [formGroup]="form">
+  <div class="field is-grouped is-grouped-centered">
+    <div class="control">
+      <div class="select">
+        <select name="selectedPitch" formControlName="pitch">
+          <option *ngFor="let note of availableNotes" [value]="note.pitch">{{ note.name }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="control">
+      <label class="radio" *ngFor="let type of availableTypes">
+        <input type="radio" formControlName="type" [value]="type"> {{ type | titlecase }}
+      </label>
+    </div>
+  </div>
+</form>

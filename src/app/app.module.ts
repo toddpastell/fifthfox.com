@@ -8,6 +8,7 @@ import { AppComponent } from './containers/app/app.component';
 const routes: Routes = [
   { path: '', redirectTo: '/chat', pathMatch: 'full' },
   { path: 'chat', loadChildren: '../chat/chat.module#ChatModule' },
+  { path: 'guitar', loadChildren: '../guitar/guitar.module#GuitarModule' },
 ];
 
 @NgModule({

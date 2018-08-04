@@ -1,0 +1,14 @@
+<section class="section">
+  <div class="container">
+    <div class="columns is-mobile" *ngFor="let string of strings">
+      <ff-note class="column" *ngFor="let note of string" [note]="note" [inScale]="!!scale[note.pitch]"></ff-note>
+    </div>
+    <div class="columns is-mobile">
+      <div class="column has-text-centered has-text-weight-bold" *ngFor="let fret of frets">{{ fret }}</div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <ff-scale-input [availableTypes]="availableTypes" [availableNotes]="availableNotes" (configScale)="onConfigScale($event)">
+  </ff-scale-input>
+</section>
